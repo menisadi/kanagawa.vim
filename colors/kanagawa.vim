@@ -1,126 +1,145 @@
-" ============================================================================
-" Kanagawa (Wave) Colorscheme for Vim
-" Inspired by https://github.com/rebelot/kanagawa.nvim (Wave variant)
+" kanagawa-wave.vim - Kanagawa (Wave) colorscheme for Vim
+" Inspired by rebelot/kanagawa.nvim (Wave variant)
 " Author: menisadi
 " ============================================================================
-if exists("syntax_on")
+
+if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = "kanagawa"
-
-" Ensure true color is enabled if possible
-if has("termguicolors")
+set background=dark          " dark background
+if has('termguicolors')
   set termguicolors
 endif
 
-
-set background=dark
 hi clear
+let g:colors_name = 'kanagawa-wave'
 
-let g:colors_name = "wave"
+" ---------------------------------------------------------------------------
+" Palette
+" ---------------------------------------------------------------------------
+" Core
+let s:p = {}
+let s:p.fg0  = '#dcd7ba'
+let s:p.bg0  = '#1f1f28'
+let s:p.bg1  = '#16161d'
+let s:p.gray = '#54546d'
+let s:p.accent_yellow = '#e6c384'
+let s:p.accent_orange = '#ff9e3b'
+let s:p.accent_red    = '#e82424'
+let s:p.accent_pink   = '#d27e99'
+let s:p.accent_green  = '#98bb6c'
+let s:p.accent_blue   = '#7e9cd8'
+let s:p.accent_cyan   = '#7fb4ca'
+let s:p.accent_teal   = '#7aa89f'
 
-hi Added gui=NONE term=NONE cterm=NONE guifg=#b3f6c0 guibg=NONE ctermfg=157 ctermbg=NONE
-hi Boolean gui=bold term=bold cterm=bold guifg=#ffa066 guibg=NONE ctermfg=215 ctermbg=NONE
-hi Changed gui=NONE term=NONE cterm=NONE guifg=#8cf8f7 guibg=NONE ctermfg=123 ctermbg=NONE
-hi link Character String
-hi ColorColumn gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#2a2a37 ctermfg=NONE ctermbg=235
-hi Comment gui=NONE term=italic cterm=NONE guifg=#727169 guibg=NONE ctermfg=242 ctermbg=NONE
-hi Conceal gui=bold term=bold cterm=bold guifg=#938aa9 guibg=NONE ctermfg=103 ctermbg=NONE
-hi link Conditional Statement
-hi Constant gui=NONE term=NONE cterm=NONE guifg=#ffa066 guibg=NONE ctermfg=215 ctermbg=NONE
-hi CurSearch gui=bold term=bold cterm=bold guifg=#dcd7ba guibg=#2d4f67 ctermfg=187 ctermbg=238
-hi Cursor gui=NONE term=NONE cterm=NONE guifg=#1f1f28 guibg=#dcd7ba ctermfg=234 ctermbg=187
-hi link CursorColumn CursorLine
-hi link CursorIM Cursor
-hi CursorLine gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#363646 ctermfg=NONE ctermbg=237
-hi link CursorLineFold FoldColumn
-hi CursorLineNr gui=bold term=bold cterm=bold guifg=#ff9e3b guibg=#2a2a37 ctermfg=215 ctermbg=235
-hi link CursorLineSign SignColumn
-hi link Debug Special
-hi link Define PreProc
-hi Delimiter gui=NONE term=NONE cterm=NONE guifg=#9cabca guibg=NONE ctermfg=248 ctermbg=NONE
-hi DiffAdd gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#2b3328 ctermfg=NONE ctermbg=236
-hi DiffChange gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#252535 ctermfg=NONE ctermbg=235
-hi DiffDelete gui=NONE term=NONE cterm=NONE guifg=#c34043 guibg=#43242b ctermfg=131 ctermbg=235
-hi DiffText gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#49443c ctermfg=NONE ctermbg=238
-hi Directory gui=NONE term=NONE cterm=NONE guifg=#7e9cd8 guibg=NONE ctermfg=246 ctermbg=NONE
-hi EndOfBuffer gui=NONE term=NONE cterm=NONE guifg=#1f1f28 guibg=NONE ctermfg=234 ctermbg=NONE
-hi Error gui=NONE term=NONE cterm=NONE guifg=#e82424 guibg=NONE ctermfg=160 ctermbg=NONE
-hi ErrorMsg gui=NONE term=NONE cterm=NONE guifg=#e82424 guibg=NONE ctermfg=160 ctermbg=NONE
-hi Exception gui=NONE term=NONE cterm=NONE guifg=#e46876 guibg=NONE ctermfg=168 ctermbg=NONE
-hi link Float Number
-hi FoldColumn gui=NONE term=NONE cterm=NONE guifg=#54546d guibg=#2a2a37 ctermfg=240 ctermbg=235
-hi Folded gui=NONE term=NONE cterm=NONE guifg=#938aa9 guibg=#2a2a37 ctermfg=103 ctermbg=235
-hi Function gui=NONE term=NONE cterm=NONE guifg=#7e9cd8 guibg=NONE ctermfg=246 ctermbg=NONE
-hi Identifier gui=NONE term=NONE cterm=NONE guifg=#e6c384 guibg=NONE ctermfg=251 ctermbg=NONE
-hi link Ignore NonText
-hi IncSearch gui=NONE term=NONE cterm=NONE guifg=#223249 guibg=#ff9e3b ctermfg=236 ctermbg=215
-hi link Include PreProc
-hi Keyword gui=italic term=italic cterm=italic guifg=#957fb8 guibg=NONE ctermfg=103 ctermbg=NONE
-hi link Label Statement
-hi LineNr gui=NONE term=NONE cterm=NONE guifg=#54546d guibg=#2a2a37 ctermfg=240 ctermbg=235
-hi link LineNrAbove LineNr
-hi link LineNrBelow LineNr
-hi link Macro PreProc
-hi MatchParen gui=bold term=bold cterm=bold guifg=#ff9e3b guibg=NONE ctermfg=215 ctermbg=NONE
-hi ModeMsg gui=bold term=bold cterm=bold guifg=#ff9e3b guibg=NONE ctermfg=215 ctermbg=NONE
-hi MoreMsg gui=NONE term=NONE cterm=NONE guifg=#658594 guibg=NONE ctermfg=66 ctermbg=NONE
-hi NonText gui=NONE term=NONE cterm=NONE guifg=#54546d guibg=NONE ctermfg=240 ctermbg=NONE
-hi Normal gui=NONE term=NONE cterm=NONE guifg=#dcd7ba guibg=#1f1f28 ctermfg=187 ctermbg=234
-hi Number gui=NONE term=NONE cterm=NONE guifg=#d27e99 guibg=NONE ctermfg=174 ctermbg=NONE
-hi Operator gui=NONE term=NONE cterm=NONE guifg=#c0a36e guibg=NONE ctermfg=143 ctermbg=NONE
-hi Pmenu gui=NONE term=NONE cterm=NONE guifg=#dcd7ba guibg=#223249 ctermfg=187 ctermbg=236
-hi PmenuExtra gui=NONE term=NONE cterm=NONE guifg=#938aa9 guibg=#223249 ctermfg=103 ctermbg=236
-hi PmenuExtraSel gui=NONE term=NONE cterm=NONE guifg=#938aa9 guibg=#2d4f67 ctermfg=103 ctermbg=238
-hi PmenuKind gui=NONE term=NONE cterm=NONE guifg=#c8c093 guibg=#223249 ctermfg=7 ctermbg=236
-hi PmenuKindSel gui=NONE term=NONE cterm=NONE guifg=#c8c093 guibg=#2d4f67 ctermfg=7 ctermbg=238
-hi PmenuMatch gui=bold term=bold cterm=bold guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
-hi PmenuMatchSel gui=bold term=bold cterm=bold guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
-hi PmenuSbar gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#223249 ctermfg=NONE ctermbg=236
-hi PmenuSel gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#2d4f67 ctermfg=NONE ctermbg=238
-hi PmenuThumb gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#2d4f67 ctermfg=NONE ctermbg=238
-hi link PreCondit PreProc
-hi PreProc gui=NONE term=NONE cterm=NONE guifg=#e46876 guibg=NONE ctermfg=168 ctermbg=NONE
-hi link Question MoreMsg
-hi QuickFixLine gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#2a2a37 ctermfg=NONE ctermbg=235
-hi Removed gui=NONE term=NONE cterm=NONE guifg=#ffc0b9 guibg=NONE ctermfg=217 ctermbg=NONE
-hi link Repeat Statement
-hi Search gui=NONE term=NONE cterm=NONE guifg=#dcd7ba guibg=#2d4f67 ctermfg=187 ctermbg=238
-hi SignColumn gui=NONE term=NONE cterm=NONE guifg=#938aa9 guibg=#2a2a37 ctermfg=103 ctermbg=235
-hi Special gui=NONE term=NONE cterm=NONE guifg=#7fb4ca guibg=NONE ctermfg=110 ctermbg=NONE
-hi link SpecialChar Special
-hi link SpecialComment Special
-hi SpecialKey gui=NONE term=NONE cterm=NONE guifg=#938aa9 guibg=NONE ctermfg=103 ctermbg=NONE
-hi SpellBad gui=undercurl term=undercurl cterm=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE guisp=#e82424
-hi SpellCap gui=undercurl term=undercurl cterm=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE guisp=#ff9e3b
-hi SpellLocal gui=undercurl term=undercurl cterm=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE guisp=#ff9e3b
-hi SpellRare gui=undercurl term=undercurl cterm=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE guisp=#ff9e3b
-hi Statement gui=bold term=bold cterm=bold guifg=#957fb8 guibg=NONE ctermfg=103 ctermbg=NONE
-hi StatusLine gui=NONE term=NONE cterm=NONE guifg=#c8c093 guibg=#16161d ctermfg=7 ctermbg=233
-hi StatusLineNC gui=NONE term=NONE cterm=NONE guifg=#54546d guibg=#16161d ctermfg=240 ctermbg=233
-hi link StatusLineTerm StatusLine
-hi link StatusLineTermNC StatusLineNC
-hi link StorageClass Type
-hi String gui=NONE term=NONE cterm=NONE guifg=#98bb6c guibg=NONE ctermfg=107 ctermbg=NONE
-hi link Structure Type
-hi TabLine gui=NONE term=NONE cterm=NONE guifg=#938aa9 guibg=#16161d ctermfg=103 ctermbg=233
-hi TabLineFill gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#1f1f28 ctermfg=NONE ctermbg=234
-hi TabLineSel gui=NONE term=NONE cterm=NONE guifg=#c8c093 guibg=#2a2a37 ctermfg=7 ctermbg=235
-hi link Tag Special
-hi Title gui=bold term=bold cterm=bold guifg=#7e9cd8 guibg=NONE ctermfg=246 ctermbg=NONE
-hi Todo gui=bold term=bold cterm=bold guifg=#223249 guibg=#658594 ctermfg=236 ctermbg=66
-hi Type gui=NONE term=NONE cterm=NONE guifg=#7aa89f guibg=NONE ctermfg=109 ctermbg=NONE
-hi link Typedef Type
-hi Underlined gui=underline term=underline cterm=underline guifg=#7fb4ca guibg=NONE ctermfg=110 ctermbg=NONE
-hi link VertSplit WinSeparator
-hi Visual gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#223249 ctermfg=NONE ctermbg=236
-hi link VisualNOS Visual
-hi WarningMsg gui=NONE term=NONE cterm=NONE guifg=#ff9e3b guibg=NONE ctermfg=215 ctermbg=NONE
-hi link WildMenu Pmenu
-hi link lCursor Cursor
-hi WinSeparator gui=NONE term=NONE cterm=NONE guifg=#16161d guibg=NONE ctermfg=233 ctermbg=NONE
+" ---------------------------------------------------------------------------
+" Helper
+" ---------------------------------------------------------------------------
+function! s:HL(group, fg, bg, attr) abort
+  execute 'hi' a:group
+        \ 'guifg=' . (empty(a:fg) ? 'NONE' : a:fg)
+        \ 'guibg=' . (empty(a:bg) ? 'NONE' : a:bg)
+        \ 'gui='   . (empty(a:attr)? 'NONE' : a:attr)
+        \ 'ctermfg=' . (empty(a:fg) ? 'NONE' : '')
+        \ 'ctermbg=' . (empty(a:bg) ? 'NONE' : '')
+        \ 'cterm='   . (empty(a:attr)? 'NONE' : a:attr)
+endfunction
+
+" ---------------------------------------------------------------------------
+" UI
+" ---------------------------------------------------------------------------
+call s:HL('Normal',        s:p.fg0,  s:p.bg0,  '')
+call s:HL('EndOfBuffer',   s:p.bg0,  '',       '')
+call s:HL('CursorLine',    '',       '#363646','')
+call s:HL('CursorLineNr',  s:p.accent_orange, '#2a2a37', 'bold')
+call s:HL('LineNr',        s:p.gray, '#2a2a37', '')
+call s:HL('ColorColumn',   '',       '#2a2a37', '')
+call s:HL('Cursor',        s:p.bg0,  s:p.fg0,  '')
+call s:HL('StatusLine',    '#c8c093', '#16161d','')
+call s:HL('StatusLineNC',  s:p.gray, '#16161d','')
+call s:HL('WinSeparator',  '#16161d', '', '')
+
+" Popup / Pmenu
+call s:HL('Pmenu',         s:p.fg0,  '#223249', '')
+call s:HL('PmenuSel',      '',       '#2d4f67', '')
+call s:HL('PmenuSbar',     '',       '#223249', '')
+call s:HL('PmenuThumb',    '',       '#2d4f67', '')
+
+" Search
+call s:HL('Search',        s:p.fg0,  '#2d4f67', '')
+call s:HL('IncSearch',     '#223249', s:p.accent_orange, '')
+call s:HL('CurSearch',     s:p.fg0,  '#2d4f67', 'bold')
+
+" Diff
+call s:HL('DiffAdd',       '', '#2b3328', '')
+call s:HL('DiffChange',    '', '#252535', '')
+call s:HL('DiffDelete',    s:p.accent_red, '#43242b', '')
+call s:HL('DiffText',      '', '#49443c', '')
+
+" Diagnostics / Spell
+call s:HL('Error',         s:p.accent_red, '', '')
+call s:HL('ErrorMsg',      s:p.accent_red, '', '')
+call s:HL('WarningMsg',    s:p.accent_orange, '', '')
+call s:HL('Todo',          '#223249', '#658594', 'bold')
+
+call s:HL('SpellBad',      '', '', 'undercurl')
+call s:HL('SpellCap',      '', '', 'undercurl')
+call s:HL('SpellRare',     '', '', 'undercurl')
+call s:HL('SpellLocal',    '', '', 'undercurl')
+
+" ---------------------------------------------------------------------------
+" Syntax
+" ---------------------------------------------------------------------------
+call s:HL('Comment',     '#727169', '', 'italic')
+call s:HL('Constant',    s:p.accent_orange, '', '')
+call s:HL('String',      s:p.accent_green,  '', '')
+call s:HL('Character',   s:p.accent_green,  '', '')
+call s:HL('Number',      s:p.accent_pink,   '', '')
+call s:HL('Boolean',     s:p.accent_orange, '','bold')
+call s:HL('Float',       s:p.accent_pink,   '', '')
+
+call s:HL('Identifier',  s:p.accent_yellow, '', '')
+call s:HL('Function',    s:p.accent_blue,   '', '')
+call s:HL('Statement',   '#957fb8', '', 'bold')
+call s:HL('Conditional', '#957fb8', '', 'italic')
+call s:HL('Repeat',      '#957fb8', '', 'bold')
+call s:HL('Operator',    '#c0a36e', '', '')
+call s:HL('Keyword',     '#957fb8', '', 'italic')
+call s:HL('Exception',   '#e46876', '', '')
+
+call s:HL('PreProc',     '#e46876', '', '')
+call s:HL('Include',     '#e46876', '', '')
+call s:HL('Define',      '#e46876', '', '')
+call s:HL('Macro',       '#e46876', '', '')
+
+call s:HL('Type',        s:p.accent_teal, '', '')
+call s:HL('StorageClass',s:p.accent_teal, '', '')
+call s:HL('Structure',   s:p.accent_teal, '', '')
+call s:HL('Typedef',     s:p.accent_teal, '', '')
+
+call s:HL('Special',     s:p.accent_cyan, '', '')
+call s:HL('SpecialChar', s:p.accent_cyan, '', '')
+call s:HL('Tag',         s:p.accent_cyan, '', '')
+call s:HL('Delimiter',   '#9cabca', '', '')
+call s:HL('SpecialComment', s:p.accent_cyan, '', '')
+call s:HL('Debug',       s:p.accent_cyan, '', '')
+
+" ---------------------------------------------------------------------------
+" Links
+" ---------------------------------------------------------------------------
+hi! link Character   String
+hi! link Float       Number
+hi! link LineNrAbove LineNr
+hi! link LineNrBelow LineNr
+hi! link CursorColumn CursorLine
+hi! link CursorLineSign SignColumn
+hi! link CursorLineFold FoldColumn
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
+hi! link VisualNOS Visual
+hi! link WildMenu Pmenu
 
 " ============================================================================
-" End of kanagawa (Wave) Colorscheme
+" End of kanagawa-wave colorscheme
 " ============================================================================
