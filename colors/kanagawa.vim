@@ -14,11 +14,8 @@ if has("termguicolors")
   set termguicolors
 endif
 
-
 set background=dark
 hi clear
-
-let g:colors_name = "wave"
 
 hi Added gui=NONE term=NONE cterm=NONE guifg=#b3f6c0 guibg=NONE ctermfg=157 ctermbg=NONE
 hi Boolean gui=bold term=bold cterm=bold guifg=#ffa066 guibg=NONE ctermfg=215 ctermbg=NONE
