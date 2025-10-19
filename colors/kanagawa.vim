@@ -17,9 +17,10 @@ endif
 set background=dark
 hi clear
 
-hi Added gui=NONE term=NONE cterm=NONE guifg=#b3f6c0 guibg=NONE ctermfg=157 ctermbg=NONE
 hi Boolean gui=bold term=bold cterm=bold guifg=#ffa066 guibg=NONE ctermfg=215 ctermbg=NONE
-hi Changed gui=NONE term=NONE cterm=NONE guifg=#8cf8f7 guibg=NONE ctermfg=123 ctermbg=NONE
+hi Added   gui=NONE term=NONE cterm=NONE guifg=#98bb6c guibg=NONE ctermfg=114 ctermbg=NONE
+hi Changed gui=NONE term=NONE cterm=NONE guifg=#7fb4ca guibg=NONE ctermfg=110 ctermbg=NONE
+hi Removed gui=NONE term=NONE cterm=NONE guifg=#e46876 guibg=NONE ctermfg=203 ctermbg=NONE
 hi link Character String
 hi ColorColumn gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#2a2a37 ctermfg=NONE ctermbg=235
 hi Comment gui=NONE term=italic cterm=NONE guifg=#727169 guibg=NONE ctermfg=242 ctermbg=NONE
@@ -81,7 +82,6 @@ hi link PreCondit PreProc
 hi PreProc gui=NONE term=NONE cterm=NONE guifg=#e46876 guibg=NONE ctermfg=168 ctermbg=NONE
 hi link Question MoreMsg
 hi QuickFixLine gui=NONE term=NONE cterm=NONE guifg=NONE guibg=#2a2a37 ctermfg=NONE ctermbg=235
-hi Removed gui=NONE term=NONE cterm=NONE guifg=#ffc0b9 guibg=NONE ctermfg=217 ctermbg=NONE
 hi link Repeat Statement
 hi Search gui=NONE term=NONE cterm=NONE guifg=#dcd7ba guibg=#2d4f67 ctermfg=187 ctermbg=238
 hi SignColumn gui=NONE term=NONE cterm=NONE guifg=#938aa9 guibg=#2a2a37 ctermfg=103 ctermbg=235
