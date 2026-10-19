@@ -7,8 +7,6 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "kanagawa"
-
 " Ensure true color is enabled if possible
 if has("termguicolors")
   set termguicolors
@@ -16,6 +14,8 @@ endif
 
 set background=dark
 hi clear
+
+let g:colors_name = "kanagawa"
 
 hi Boolean gui=bold term=bold cterm=bold guifg=#ffa066 guibg=NONE ctermfg=215 ctermbg=NONE
 hi Added   gui=NONE term=NONE cterm=NONE guifg=#98bb6c guibg=NONE ctermfg=114 ctermbg=NONE
